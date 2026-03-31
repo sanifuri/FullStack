@@ -19,4 +19,9 @@ public class ControladorLibro {
         libros.add(libro);
         return libro;
     }
+    @DeleteMapping("/{codigoBarras}")
+    public String eliminar(@PathVariable Integer codigoBarras) {
+        libros.removeIf(libro -> libro.getCodigoBarras().equals(codigoBarras));
+        return "Libro eliminado";
+    }
 }
